@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+   <h:head>
+        <style>
+
+.custom-navbar{box-shadow: 10px 10px 10px #eee; background-color: #fff;}
+.nav-link{color: #f7204e!important;}
+.custom-toggler.navbar-toggler {border-color: rgb(247,32,78);}
+.custom-toggler .navbar-toggler-icon {background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(247,32,78, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");}
+.custom-toggler .navbar-toggler-icon{width: 18px!important;}
+.custom-toggler:hover{border-color: rgb(255,255,255); background-color: #f76a88;}
+.custom-toggler{border-color: rgb(255,255,255); background-color: #f76a88;}
+.nav-item{
+   color:blue;
+    
+    
+}
+.navbar-toggler-icon:hover{background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");}#logo_custom{margin-top: -6px;}
+@media only screen and (max-width: 760px) {
+    
+    #logo_custom{width: 40%; 
+    }
+  #top{
+    margin-bottom: 10px;
+    }
+    
+    nav li{
+        width:35%;
+        background-color: #E8E8E8;
+        margin:4px;
+        border-radius: 48px 48px 48px 48px;
+    }
+    #julnav {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+      #julnav li {
+        text-align: center;
+    }
+    }
+        
+
+.active {
+background: rgba(179,220,237,1);
+  border-radius: 51px 51px 51px 51px;
+}
+
+
+#top{
+    margin-bottom: 10px;
+    
+}
+body{
+    background-color: #BCBCBC;
+}
+
+.blue2 {
+    background-color: #84E3FF!important;
+    
+    
+}
+.custom-toggler2 {
+    background-color: #84E3FF!important;
+}
+#navigator ul li {
+    color:blue;
+    
+}
+.fixed-top {
+    position:relative;
+    
+    
+}
+</style>
+  </h:head> 
+  <body>
+   <div id="top" class="top">
+            
+                <div id="nav">
+<nav id="navigator" class="navbar fixed-top navbar-expand-md custom-navbar navbar-dark">
+
+    <h:graphicImage name="images/jsflogo.png" height="100" width="120"/>
+       <h:form>
+    <button class="navbar-toggler navbar-toggler-right custom-toggler2" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                                <span class="navbar-toggler-icon "></span>
+                            </button>
+                              <div  class="collapse navbar-collapse  " id="collapsibleNavbar">
+                                  
+                                  <ul id="julnav" class="navbar-nav ml-auto ">
+                                    <li class="nav-item px-2 #{view.viewId eq '/paginas/inicios/inicio.xhtml' ? 'active' : ''} #{view.viewId eq '/paginas/inicios/inicio_1.xhtml' ? 'active' : ''} #{view.viewId eq '/paginas/inicios/inicio_2.xhtml' ? 'active' : ''} #{view.viewId eq '/paginas/inicios/inicio_3.xhtml' ? 'active' : ''} #{view.viewId eq '/paginas/inicios/inicio_4.xhtml' ? 'active' : ''}">
+                                        <h:commandLink value="Inicio" action="#{inicioVariado.generaPaginasVariadas()}">  </h:commandLink>
+                                    </li>
+                                    <li class="nav-item px-2 #{view.viewId eq '/paginas/clientesVista.xhtml' ? 'active' : ''}">
+                                   <h:commandLink value="pantallaClientes" action="ClientesVistaCentral">  </h:commandLink>
+                                    </li>
+                                    <li class="nav-item px-2 #{view.viewId eq '/paginas/loremipsum.xhtml' ? 'active' : ''}">
+                                  <h:commandLink value="loremipsum2" action="lorem_ipsum">  </h:commandLink>
+                                    </li>  
+                                        <li class="nav-item px-2 #{view.viewId eq '/paginas/saludo/tardes.xhtml' ? 'active' : ''} #{view.viewId eq '/paginas/saludo/dias.xhtml' ? 'active' : ''} #{view.viewId eq '/paginas/saludo/noches.xhtml' ? 'active' : ''}">
+                                            <h:commandLink value="saludar" action="#{saludoManagedBean.saludo()}">  </h:commandLink>
+                                    </li>  
+                                        
+                                       
+                                  </ul>
+                                     
+                              </div>  
+     </h:form>
+</nav>
+   </div>         
+           
+            
+        </div>
+        </body>
+</html>
+

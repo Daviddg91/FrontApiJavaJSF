@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+     
+      >
+    
+     
+    <ui:include src="modalExitoBorrar.xhtml"></ui:include>
+                    
+                       
+                
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="mensaje1" class="modal-body">
+        Desea borrar el cliente 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="button" onclick="borrarUsuario()" class="btn btn-primary">Borrar cliente</button>
+      </div>
+    </div>
+  </div>
+</div> 
+  <!-- Modal exito -->
+   
+ <h:outputScript type="text/javascript">
+ 
+ 
+     function borrarUsuario(){
+       var dni=document.getElementById("dniParam").value;
+ 
+
+             $.ajax({
+            type : "POST", 
+            url : "http://"+ip+":8080/users?eliminarDNI="+dni,
+            contentType: 'application/json',
+             dataType: "json",
+            success: function (xhr, ajaxOptions, thrownError) {
+             
+               
+                
+          },
+         error: function(xhr, status, error) {
+             // alert(JSON.stringify(xhr.responseText)+xhr.status);
+              
+              if(JSON.stringify(xhr.status)==200){
+                 $('#exampleModal').modal('hide');
+              //   document.getElementById("mensaje1").html=JSON.stringify(xhr.responseText);
+                 $("#mensaje2").append(JSON.stringify(xhr.responseText));
+                
+                  $('#exampleModal2').modal('show');
+                   setTimeout(function(){
+                  $('#exampleModal2').modal('hide');
+                  location.reload();
+                     }, 2000);
+                 }
+}
+         
+
+            
+        });   
+        
+    }
+  
+     
+</h:outputScript>  
+</html>
+

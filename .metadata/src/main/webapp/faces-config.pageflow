@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf157935504840140" configfile="/FrontClientesJSF/src/main/webapp/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="2482" id="pf157935520495641" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf1579356730542106 pf1579356730542107 pf1579356730542108 pf1579356730542109 pf1579356730542110 pf1579356730542111 pf1579356730542112 pf1579356730542113 pf1579356736346124 pf1579356748925126 pf1579356748925127 pf1579356748925128 pf1579356748925129" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="./WEB_INF/paginas/clientesVista.xhtml" x="122" y="3018" id="pf157935649197272" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" path="./WEB_INF/paginas/clientesVista.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="./WEB_INF/paginas/crud/CrearCliente.xhtml" x="122" y="3555" id="pf157935649197273" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" path="./WEB_INF/paginas/crud/CrearCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="./WEB_INF/paginas/crud/editarCliente.xhtml" x="122" y="4093" id="pf157935649197274" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" path="./WEB_INF/paginas/crud/editarCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="./WEB_INF/paginas/crud/borrarCliente.xhtml" x="122" y="4631" id="pf157935649197275" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" path="./WEB_INF/paginas/crud/borrarCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/saludo/tardes.xhtml" id="pf1579356730542115" referenceLink="//@navigationRule.12/@navigationCase.0/@toViewId|" inlinks="pf1579356730542106" path="/paginas/saludo/tardes.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/saludo/noches.xhtml" id="pf1579356730542116" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" inlinks="pf1579356730542107" path="/paginas/saludo/noches.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/saludo/dias.xhtml" id="pf1579356730542117" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" inlinks="pf1579356730542108" path="/paginas/saludo/dias.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/loremipsum.xhtml" id="pf1579356730542118" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf1579356730542109" path="/paginas/loremipsum.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/inicios/inicio_4.xhtml" id="pf1579356730542119" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf1579356730542110" path="/paginas/inicios/inicio_4.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/inicios/inicio_3.xhtml" id="pf1579356730542120" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf1579356730542111" path="/paginas/inicios/inicio_3.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/inicios/inicio_2.xhtml" id="pf1579356730542121" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf1579356730542112" path="/paginas/inicios/inicio_2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/inicios/inicio_1.xhtml" id="pf1579356730542122" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf1579356730542113" path="/paginas/inicios/inicio_1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/inicios/inicio.xhtml" id="pf1579356736357125" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf1579356736346124" path="/paginas/inicios/inicio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/crud/borrarCliente.xhtml" id="pf1579356748925130" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf1579356748925126" path="/paginas/crud/borrarCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/crud/editarCliente.xhtml" id="pf1579356748925131" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf1579356748925127" path="/paginas/crud/editarCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/crud/CrearCliente.xhtml" id="pf1579356748925132" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf1579356748925128" path="/paginas/crud/CrearCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="paginas/clientesVista.xhtml" id="pf1579356748925133" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf1579356748925129" path="/paginas/clientesVista.xhtml"/>
+  <links id="pf1579356730542106" target="pf1579356730542115" source="pf157935520495641" outcome="buenas-tardes" redirect="true"/>
+  <links id="pf1579356730542107" target="pf1579356730542116" source="pf157935520495641" outcome="buenas-noches" redirect="true"/>
+  <links id="pf1579356730542108" target="pf1579356730542117" source="pf157935520495641" outcome="buenos-dias" redirect="true"/>
+  <links id="pf1579356730542109" target="pf1579356730542118" source="pf157935520495641" outcome="lorem_ipsum" redirect="true"/>
+  <links id="pf1579356730542110" target="pf1579356730542119" source="pf157935520495641" outcome="inicio_4"/>
+  <links id="pf1579356730542111" target="pf1579356730542120" source="pf157935520495641" outcome="inicio_3"/>
+  <links id="pf1579356730542112" target="pf1579356730542121" source="pf157935520495641" outcome="inicio_2"/>
+  <links id="pf1579356730542113" target="pf1579356730542122" source="pf157935520495641" outcome="inicio_1"/>
+  <links id="pf1579356736346124" target="pf1579356736357125" source="pf157935520495641" outcome="inicio" redirect="true"/>
+  <links id="pf1579356748925126" target="pf1579356748925130" source="pf157935520495641" outcome="borrarCliente" redirect="true"/>
+  <links id="pf1579356748925127" target="pf1579356748925131" source="pf157935520495641" outcome="editarCliente" redirect="true"/>
+  <links id="pf1579356748925128" target="pf1579356748925132" source="pf157935520495641" outcome="insertarClientes" redirect="true"/>
+  <links id="pf1579356748925129" target="pf1579356748925133" source="pf157935520495641" outcome="ClientesVistaCentral" redirect="true"/>
+</pageflow:Pageflow>

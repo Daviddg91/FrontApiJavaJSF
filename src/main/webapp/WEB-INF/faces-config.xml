@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.3"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
+
+ <!-- crud -->
+     <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>ClientesVistaCentral</from-outcome>
+            <to-view-id>/paginas/clientesVista.xhtml</to-view-id>
+            <redirect /> 
+        </navigation-case>
+    </navigation-rule>
+ 
+ <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>insertarClientes</from-outcome>
+            <to-view-id>/paginas/crud/CrearCliente.xhtml</to-view-id><redirect /> 
+        </navigation-case>
+    </navigation-rule>
+ <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>editarCliente</from-outcome>
+            <to-view-id>/paginas/crud/editarCliente.xhtml</to-view-id><redirect /> 
+        </navigation-case>
+    </navigation-rule>
+     <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>borrarCliente</from-outcome>
+            <to-view-id>/paginas/crud/borrarCliente.xhtml</to-view-id><redirect /> 
+        </navigation-case>
+    </navigation-rule>
+       <navigation-rule>
+        <from-view-id>*</from-view-id>
+        
+        <!-- inicio -->
+        <navigation-case>
+            <from-outcome>inicio</from-outcome>
+            <to-view-id>/paginas/inicios/inicio.xhtml</to-view-id><redirect /> 
+        </navigation-case>
+    </navigation-rule>
+         
+         <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>inicio_1</from-outcome>
+            <to-view-id>/paginas/inicios/inicio_1.xhtml</to-view-id> 
+        </navigation-case>
+    </navigation-rule>
+         <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>inicio_2</from-outcome>
+            <to-view-id>/paginas/inicios/inicio_2.xhtml</to-view-id> 
+        </navigation-case>
+    </navigation-rule>
+         <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>inicio_3</from-outcome>
+            <to-view-id>/paginas/inicios/inicio_3.xhtml</to-view-id> 
+        </navigation-case>
+    </navigation-rule>
+         <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>inicio_4</from-outcome>
+            <to-view-id>/paginas/inicios/inicio_4.xhtml</to-view-id> 
+        </navigation-case>
+    </navigation-rule>
+          <navigation-rule>
+        <from-view-id>*</from-view-id>
+        
+        <!-- loremipsum -->
+        <navigation-case>
+            <from-outcome>lorem_ipsum</from-outcome>
+            <to-view-id>/paginas/loremipsum.xhtml</to-view-id><redirect /> 
+        </navigation-case>
+    </navigation-rule>
+        
+     <!-- saludos -->
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>buenos-dias</from-outcome>
+            <to-view-id>/paginas/saludo/dias.xhtml</to-view-id><redirect /> 
+        </navigation-case>
+    </navigation-rule>
+   
+     <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>buenas-noches</from-outcome>
+            <to-view-id>/paginas/saludo/noches.xhtml</to-view-id><redirect /> 
+        </navigation-case>
+    </navigation-rule>
+     
+    <navigation-rule>
+        <from-view-id>*</from-view-id>
+        <navigation-case>
+            <from-outcome>buenas-tardes</from-outcome>
+            <to-view-id>/paginas/saludo/tardes.xhtml</to-view-id><redirect /> 
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <!-- beans -->
+    <managed-bean>
+        <managed-bean-name>saludoManagedBean</managed-bean-name>
+        <managed-bean-class>FrontClientesJSF.SaludoJSFManagedBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    <managed-bean>
+        <managed-bean-name>inicioVariado</managed-bean-name>
+        <managed-bean-class>FrontClientesJSF.InicioVariadoManagedBean</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+  
+</faces-config>

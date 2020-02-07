@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15793518941290" configfile="/FrontClientesJSF/src/main/webapp/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="*" x="122" y="2482" id="pf15793519147961" referenceLink="//@navigationRule.12/@fromViewId|" outlinks="pf1579372436485134 pf1579373155797160 pf1579373155797161 pf1579373155797162 pf1579373155797163 pf1579373155797164 pf1579373155797165 pf1579373155797166 pf1579373155797167 pf1579373155797168 pf1579373155797169 pf1579373155797170 pf1579373155797171" path="*"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/clientesVista.xhtml" id="pf1579372436485147" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf1579372436485134" path="/paginas/clientesVista.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/saludo/tardes.xhtml" id="pf1579373155797172" referenceLink="//@navigationRule.12/@navigationCase.0/@toViewId|" inlinks="pf1579373155797160" path="/paginas/saludo/tardes.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/saludo/noches.xhtml" id="pf1579373155797173" referenceLink="//@navigationRule.11/@navigationCase.0/@toViewId|" inlinks="pf1579373155797161" path="/paginas/saludo/noches.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/saludo/dias.xhtml" id="pf1579373155797174" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" inlinks="pf1579373155797162" path="/paginas/saludo/dias.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/loremipsum.xhtml" id="pf1579373155797175" referenceLink="//@navigationRule.9/@navigationCase.0/@toViewId|" inlinks="pf1579373155797163" path="/paginas/loremipsum.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/inicios/inicio_4.xhtml" id="pf1579373155797176" referenceLink="//@navigationRule.8/@navigationCase.0/@toViewId|" inlinks="pf1579373155797164" path="/paginas/inicios/inicio_4.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/inicios/inicio_3.xhtml" id="pf1579373155797177" referenceLink="//@navigationRule.7/@navigationCase.0/@toViewId|" inlinks="pf1579373155797165" path="/paginas/inicios/inicio_3.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/inicios/inicio_2.xhtml" id="pf1579373155797178" referenceLink="//@navigationRule.6/@navigationCase.0/@toViewId|" inlinks="pf1579373155797166" path="/paginas/inicios/inicio_2.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/inicios/inicio_1.xhtml" id="pf1579373155797179" referenceLink="//@navigationRule.5/@navigationCase.0/@toViewId|" inlinks="pf1579373155797167" path="/paginas/inicios/inicio_1.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/inicios/inicio.xhtml" id="pf1579373155797180" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf1579373155797168" path="/paginas/inicios/inicio.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/crud/borrarCliente.xhtml" id="pf1579373155797181" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" inlinks="pf1579373155797169" path="/paginas/crud/borrarCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/crud/editarCliente.xhtml" id="pf1579373155797182" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf1579373155797170" path="/paginas/crud/editarCliente.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="WEB_INF/paginas/crud/CrearCliente.xhtml" id="pf1579373155797183" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" inlinks="pf1579373155797171" path="/paginas/crud/CrearCliente.xhtml"/>
+  <links id="pf1579372436485134" target="pf1579372436485147" source="pf15793519147961" outcome="ClientesVistaCentral" redirect="true"/>
+  <links id="pf1579373155797160" target="pf1579373155797172" source="pf15793519147961" outcome="buenas-tardes" redirect="true"/>
+  <links id="pf1579373155797161" target="pf1579373155797173" source="pf15793519147961" outcome="buenas-noches" redirect="true"/>
+  <links id="pf1579373155797162" target="pf1579373155797174" source="pf15793519147961" outcome="buenos-dias" redirect="true"/>
+  <links id="pf1579373155797163" target="pf1579373155797175" source="pf15793519147961" outcome="lorem_ipsum" redirect="true"/>
+  <links id="pf1579373155797164" target="pf1579373155797176" source="pf15793519147961" outcome="inicio_4"/>
+  <links id="pf1579373155797165" target="pf1579373155797177" source="pf15793519147961" outcome="inicio_3"/>
+  <links id="pf1579373155797166" target="pf1579373155797178" source="pf15793519147961" outcome="inicio_2"/>
+  <links id="pf1579373155797167" target="pf1579373155797179" source="pf15793519147961" outcome="inicio_1"/>
+  <links id="pf1579373155797168" target="pf1579373155797180" source="pf15793519147961" outcome="inicio" redirect="true"/>
+  <links id="pf1579373155797169" target="pf1579373155797181" source="pf15793519147961" outcome="borrarCliente" redirect="true"/>
+  <links id="pf1579373155797170" target="pf1579373155797182" source="pf15793519147961" outcome="editarCliente" redirect="true"/>
+  <links id="pf1579373155797171" target="pf1579373155797183" source="pf15793519147961" outcome="insertarClientes" redirect="true"/>
+</pageflow:Pageflow>
