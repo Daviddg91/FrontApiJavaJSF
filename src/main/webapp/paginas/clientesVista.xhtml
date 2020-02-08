@@ -165,7 +165,7 @@ body{
               
                <input id="dniParam" name="prodId" type="hidden"  />
     
-                <input type="hidden" id="limiteElementos" value="5"  />
+                <input type="hidden" id="limiteElementos" value="15"  />
                 <input type="hidden" id="nPaginaActual"  value="0"  />
              <script type="text/javascript">
  //<![CDATA[
@@ -228,7 +228,7 @@ function clickBusqueda(){
     
    
     
-      var url4 ="http://"+ip+":8080/users?page="+page+"&size="+2;
+      var url4 ="http://"+ip+":8080/users?page="+page+"&size="+limiteElementos;
       
       
       
@@ -622,7 +622,7 @@ var contenidoBotones="";
             construirPaginador(inicio, currentNext,maxElements,"prev");
      }
      
-      construirPaginador(1, totalPages,10, "inicial");
+      construirPaginador(1, totalPages,6, "inicial");
     
    
         
