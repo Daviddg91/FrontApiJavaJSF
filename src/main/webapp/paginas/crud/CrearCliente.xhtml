@@ -92,7 +92,7 @@ input {
 							success : function(xhr, ajaxOptions, thrownError) {
 								var mensaje = JSON.stringify(xhr.responseText);
 						       	if(mensaje=="" || mensaje === undefined){
-				            		$("#mensaje1").append(" El usuario " + nombre + " fue modificado con exito");
+				            		$("#mensaje1").append(" El usuario " + nombre + " fue creado con exito");
 				            	}else{
 				            		$("#mensaje1").append(mensaje);
 				            	}
