@@ -3,17 +3,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f = "http://java.sun.com/jsf/core" 
+      xmlns:f ="http://java.sun.com/jsf/core" 
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:p="http://primefaces.org/ui"
       >
-       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.1/js/jquery.tablesorter.js"></script>
-
-          <ui:composition template="/plantillas/plantilla1.xhtml">
-
-            <ui:define name="content">
-               
-             <style>
+     
+       <style>
                /* Styles for wrapping the search box */
 
 .main {
@@ -27,11 +22,6 @@
    min-width: 110px;
     margin-left:30.5%;
 }
-
-
-
-
-
 
 .has-search .form-control-feedback {
     right: initial;
@@ -119,321 +109,55 @@ body{
 }
  
 
-.pagination a {
-  color: black;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  border: 1px solid #ddd;
-  border-top-color:#00c851;
-  border-bottom-color: #00c851;
-  
-  
-  
-   max-width:45px;
- width:45px;
- max-height:34px;
- height:34px;
-}
- 
-
-.pagination a.active {
-  background-color: #00c851;
-  color: white;
-  border: 1px solid #00c851;
-  border-radius: 0px;
-}
-
-.pagination a:hover:not(.active) {background-color: #ddd;}
-.pagination a:hover:first-child {background-color: #00c851;}
-.pagination a:hover:last-child {background-color: #00c851;}
-
-.pagination a:first-child {
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  background-color: #00c851;
-  color:white;
-}
-
-.pagination a:last-child {
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-    background-color: #00c851;
-  color:white;
-}
-             </style>  
-              
-               <input id="dniParam" name="prodId" type="hidden"  />
-    
-                <input type="hidden" id="limiteElementos" value="15"  />
-                <input type="hidden" id="nPaginaActual"  value="0"  />
-             <script type="text/javascript">
- //<![CDATA[
+</style>
+     <!--
+<script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.dataTables.js"></script>
 
  
+
+  <link rel="stylesheet" type="text/css" href="../resources/css/datatables.css"/> -->
  
-function clickBusqueda(){
-    
-    var input = document.getElementById("inputbusqueda");
-     
-      input.value="";
-       
-}
 
-    function AllTrianDown(){
-     
-       $("[id*=triangulo]").removeClass("rot180");
-
-      
-}
-
-
-    
- function rotar180(elem){
-              
-    AllTrianDown();
-       $(elem).find(".triangulo").addClass("rot180");
-
-          }   
-
-  function getQueryVariable(variable) {
-   var query = window.location.search.substring(1);
-   var vars = query.split("?");
- 
-    
-  for (var i=0; i < vars.length; i++) {
-       var pair = vars[i].split("=");
-       if(pair[0] == variable) {
-           return pair[1];
-       }
-   }
-   return false;
-}
-    var page;
-
-             page=getQueryVariable("page") ;
-             
-       if(page==false || page=="undefined"){
-           page=1;
-       }
-        page=page-1;
-    mostrarUsuarios();
-
-    
-    function mostrarUsuarios(){
-      
-    
-
-    var limiteElementos=document.getElementById("limiteElementos").value;
-    
    
+      
+
     
-      var url4 ="http://"+ip+":8080/users?page="+page+"&size="+limiteElementos;
-      
-      
-      
-       var list2=null;
-             $.ajax({
-            type : "GET",
-            url : url4,
-            dataType: "json",
-           data: {users: list2},
-           
-            success : function(result) {
-               $('#tablebody').html("");
-                  $.each(result,function(key, val) {
-          var url="./crud/editarCliente.xhtml?dni="+val.dni+"" ; 
-               var clase ="class='btn btn-success'";  
+     
+          <ui:composition template="/plantillas/plantilla1.xhtml">
+
+            <ui:define name="content">
                
-                var editar="<div > <a href="+url+"  " +clase +"  >Editar </a></div>";
-                 
-          
-               var div1='  <div onclick="parametroDni(&quot;'+val.nombre+'&quot;,&quot;'+val.dni+'&quot;)'+'">';
-                var boton1='<button type="button" id="botondni" class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" >Eliminar</button>';
- 
-  
-  
-  
-  
-var eliminar=div1+boton1+'</div>';
-
-
-        var htmlrow ="<tr>"+"<td>" + val.id + "</td>"+"<td>" + val.nombre + "</td>"+"<td>" + val.apellidos + "</td>"+"<td>" + val.dni + "</td>"+"<td>" + val.correo + "</td>"+"<td>" + val.telefono + "</td>"+"<td>" + val.direccion + "</td>"+"<td>" + val.cp + "</td>"+"<td>" + val.edad + "</td>"+"<td>" +  editar + "</td>"+"<td>" +  eliminar + "</td>"+"</tr>";         
-             $('#tablebody').append(htmlrow);
-        });
-                
-            }
-        });   
-    }
-   
-  //]]>    
-</script>
-                    
-                
-              
-            
-             <script type="text/javascript">
- 
-
-    
-  
-
- 
-var url7="http://"+ip+":8080/users?totalElements";
-    
-    var totalElementos = $.ajax({
-    type: "GET",
-    url: url7,
-    async: false
-}).responseText;
-    
-    
-    
-
- 
+         <h:outputScript library = "js" name ="datatables.js" />
+	     <h:outputScript  library = "js" name ="datatables.responsive.js" />
+	     <h:outputScript library = "js" name ="tablesorter.js"  />
+	     
+	     <h:outputStylesheet library = "css" name = "responsive.datatables.css"  />
+	     <h:outputStylesheet library = "css" name = "responsive.jqueryui.css"  />
+	     <h:outputStylesheet library = "css" name = "datatables.css"  />              
 
    
- 
- 
- 
- function buscarUsuarios(){
- 
- 
-        busqueda=true;
-          var input = document.getElementById("inputbusqueda");
-          cadenaBusqueda=input.value;
-        
-       var list2=null;
-             $.ajax({
-            type : "GET", 
-            url : "http://"+ip+":8080/users?busqueda="+cadenaBusqueda,
-            dataType: "json",
-             
-            success : function(result) {
-               
-               $('#tablebody').html("");
-                  $.each(result,function(key, val) {
- 
-          var url='&quot;crud/editarCliente.xhtml?dni='+val.dni+"\"" ;    
-             
-                    var clase ='class=&quot;btn btn-success&quot;';
-                 
-  var comand="<div><a href="+url+ clase +"  >Editar </a></div>";
-  
-               var div1='  <div onclick="parametroDni(&quot;'+val.nombre+'&quot;,&quot;'+val.dni+'&quot;)'+'">';
-  
- var boton1='<button type="button" id="botondni" class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" >Eliminar</button>';
- 
-  
-  
-var eliminar=div1+boton1+'</div>';
-
-
-        var htmlrow ="<tr>"+"<td>" + val.id + "</td>"+"<td>" + val.nombre + "</td>"+"<td>" + val.apellidos + "</td>"+"<td>" + val.dni + "</td>"+"<td>" + val.correo + "</td>"+"<td>" + val.telefono + "</td>"+"<td>" + val.direccion + "</td>"+"<td>" + val.cp + "</td>"+"<td>" + val.edad + "</td>"+"<td>" +  comand + "</td>"+"<td>" +  eliminar + "</td>"+"</tr>";         
-             $('#tablebody').append(htmlrow);
-        });
-                
-            }
-        });   
-    }
- 
- 
- 
-$(document).ready(function() {
-
-  
-  $("table").tablesorter();
-  
-    
-    
-  $('#exampleModal').on('shown.bs.modal', function () {
-  $('#myInput').trigger('focus');
-});
-  
-});
-
-function parametroDni(nombre,dni){
-      
-     document.getElementById("dniParam").value=dni;
-
-     document.getElementById("mensaje1").innerHTML ="Desea eliminar el cliente "+nombre +"?";
- 
-}
-
-$(document).on('keypress',function(e) {
-    if(e.which == 13) {
-        
-        buscarUsuarios();
-    }
-});
- 
- 
-   
-   
-   
-  $(document).ready(function() {
-     
-      $('#buscresult').basictable({
-        breakpoint: 768
-      });
-
-    });
-</script>
-    <body>
-
-  
-                
-                <div id="contenido">
+             <div id="contenido">
                 <h1>Pantalla de clientes front</h1>    
    
             
-                     <div class="main">
-  
-  <!-- Actual search box --> 
-
-  
  
-    <div id="padrebusc" class=" container col-sm-10 col-md-10 col-lg-10 col-xl-10">
-        <div >
-               
-                    <div  class="form-group has-feedback has-search" >
-                        <input  size="160" type="search"  id="inputbusqueda"  onclick="clickBusqueda();" value="Buscar.." class="glyphicon glyphicon-search form-control-feedback form-control "    ></input>
-                       </div>
-       </div>
-        <div>
- 						<h:form id="busquedaForm">   
-                                <span id="buscboton" onclick="buscarUsuarios();" class="btn btn-success">
-                                    <div style="display:flex">
-                                    <div> <i class="fa fa-search"></i></div>
-                                    <div>&nbsp;&nbsp;Buscar</div>
-                                    </div>
-                                </span>
-       					 </h:form>   
-        </div>
-    
-    </div>      
-   
-       
-   
-  
-</div>
                  <a  href="crud/CrearCliente.xhtml" class="btn btn-success"> Crear Nuevo Cliente </a>
  
-                <h:form id="tablaForm">   
-                    <div class="table-responsive">
-        <table id="buscresult" class="table table-bordered table-striped table-hover">
+                  
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+         <table id="tablaForm" class=" table table-bordered table-striped table-hover">
             <thead>
           <tr>
-            <th>ID</th>
+            <!--  <th>ID</th>  -->
    
-            <th class="cursor" onclick="rotar180(this);"><div id="spantri" ><div>Nombre</div><div class="triangulo"  id="triangulo1">&#x25BC;</div></div></th>
-            <th class="cursor" onclick="rotar180(this);"  ><div id="spantri"><div>Apellidos</div><div class="triangulo"  id="triangulo2">&#x25BC;</div></div></th>
-            <th class="cursor" onclick="rotar180(this);" ><div id="spantri"><div>DNI</div><div class="triangulo"   id="triangulo3">&#x25BC;</div></div> </th>
-            <th class="cursor" onclick="rotar180(this);" ><div id="spantri"><div>Correo</div><div class="triangulo"   id="triangulo3">&#x25BC;</div></div></th>
-            <th class="cursor" onclick="rotar180(this);" ><div id="spantri"><div>Telefono</div><div class="triangulo"   id="triangulo3">&#x25BC;</div></div> </th>
-            <th class="cursor" onclick="rotar180(this);" ><div id="spantri"><div>Direccion</div><div class="triangulo"   id="triangulo3">&#x25BC;</div></div></th>
-            <th class="cursor" onclick="rotar180(this);" ><div id="spantri"><div>CP</div><div class="triangulo"   id="triangulo3">&#x25BC;</div></div></th>
-            <th class="cursor" onclick="rotar180(this);"  ><div id="spantri"><div>Edad</div><div class="triangulo"   id="triangulo4">&#x25BC;</div></div></th>
+            <th>Nombre</th>
+            <th> <div>Apellidos</div></th>
+            <th><div>DNI</div> </th>
+            <th><div>Correo</div></th>
+            <th><div>Telefono</div> </th>
+            <th><div>Direccion</div></th>
+            <th><div>CP</div></th>
+            <th ><div>Edad</div></th>
             <th>Editar</th>
             <th>Eliminar</th>
             
@@ -450,185 +174,109 @@ $(document).on('keypress',function(e) {
                     
                     
 
-</h:form>
+ 
                 
            
                 
             
-         <div id="paginadorNewClientes" class="">
-                <div class="row">
-                    <div style="display:flex;justify-content: space-between;">
-                    
-                    <div id="paginationNumbers"></div>
-                    <div style="margin-left:100%;">
-                    <h:commandLink action="insertarClientes" style="max-height:44px;min-width:204px;" class="btn btn-success"><ion-icon name="add"></ion-icon>Ingresar Clientes</h:commandLink>
-                    </div>
-                    
-                    </div>
-                    
-                    
-                 </div>
-        </div>
-                 
          
-                 
-                   
-                   
-               
-                    
                     
                
          <script type="text/javascript">
  //<![CDATA[
      
-
-   var limiteElementos =document.getElementById("limiteElementos").value;
-
-  var query =  location.href;
-  var vars = query.split("?")
-  var URLactual = vars[0];
-  
-    
-    
-     
-     function construirBotones(inicio, final,maxElements){
-         
-        
-var contenidoBotones="";
-         if(inicio<=0){
-             inicio=1;
-         }
-                      
-
-          if(final>=totalPages){
-               
-             final=totalPages;
-         }
-            
-            var max=0;
-             for(var j = inicio; j <= final; j++){
-              var href2="href='"+URLactual+"?page="+j+"'";
-                        if(j==page){
-                    contenidoBotones+=" <a class=' page-item disabled active page-link' >"+j+" </a> "
-
-                        }else{
-                       contenidoBotones+="<a class='page-item page-link' "+href2+ "   >"+j+" </a>"
-
-
-                        }
-                   max++;     
-                   if(max==maxElements){
-                       break;
-                   }                        
-              }
-               
-
-         return contenidoBotones;
-     }
-     
-     var totalPages = totalElementos/limiteElementos;
-      var finalVoid=0;
-     var inicioVoid=0;
-     
-     var currentNext=document.getElementById("nPaginaActual").value;
-          //var currentPrev=document.getElementById("nPaginaActual").value;
-   
-          page=page+1;
-     function construirPaginador(inicio, final, maxElements,ambito ){
-          
-   
-        if(currentNext==0){
-            currentNext=10;
-        }
-        
-        if(currentNext<=10){
-            
-            currentNext=maxElements;
-        }
-        
-         if(ambito!="" && ambito!="inicial"){
-             
-           if(ambito=="next"){
-              finalVoid++;
-            finalVoid++;
-            inicioVoid++;
-            inicioVoid++;
-        }
-          if(ambito=="prev"){
-          finalVoid--;
-            finalVoid--;
-            inicioVoid--;
-            inicioVoid--;
-        } 
-       
-        }else{
-             if(ambito=="inicial"){
-          finalVoid=maxElements;
-
-            inicioVoid=inicio;
-        } 
-             if(page!=1 && page>7){
-            inicioVoid=page-5;
-            finalVoid=page+5;
-         }
-            
-        }
-              
-       
-          
-         var contenido="<div class='pagination' ";
-         contenido +="<ul id='ulpage' class='pagination'>";
-         var onclickPrev="onclick='construirPaginadorPrev("+(inicioVoid)+","+(maxElements)+","+maxElements+")' ";
-        
-         contenido +="     <a id='enlacePrev'  class='page-link' "+onclickPrev+" aria-label='Previous'>        <span aria-hidden='true'>&laquo;</span>        <span class='sr-only'>Previous</span>      </a>    </li>";
-         
-         contenido +=construirBotones(inicioVoid, finalVoid, maxElements);
-         var onclickNext="onclick='construirPaginadorNext("+(inicioVoid)+","+(currentNext)+","+maxElements+")' ";
-
-        contenido +=" <a id='enlaceNext' class='page-link' "+onclickNext+" aria-label='Next'><span aria-hidden='true'>&raquo;</span><span class='sr-only'>Next</span></a></li>";
-        contenido +="</div>";
-        
-         document.getElementById("paginationNumbers").innerHTML=contenido;
-        // alert(inicio+"    "+currentNext );
-           if(finalVoid>=(totalPages-1)){
-          $('#enlaceNext').addClass("disabled");
-          }else{
-          $('#enlaceNext').removeClass("disabled");     
-          }
-           
-          if(inicioVoid<=1){
-           $('#enlacePrev').addClass("disabled");
-          }else{
-          $('#enlacePrev').removeClass("disabled");     
-          }
-     }
-     function construirPaginadorNext(inicio, final, maxElements ){
-            
-          
-             if(currentNext>=totalPages){
-                
-             currentNext=totalPages;
-         }
-            construirPaginador(inicio, currentNext,maxElements,"next");
-
-     }
-     function construirPaginadorPrev(inicio, final, maxElements ){
-            
-          // alert(inicio+"   "+currentNext);
-             if(currentNext>=totalPages){
-                alert("currentNext");
-             currentNext=totalPages;
-         }
-            construirPaginador(inicio, currentNext,maxElements,"prev");
-     }
-     
-      construirPaginador(1, totalPages,6, "inicial");
-    
-   
-        
-      
      //]]>
     </script>
+                 <script type="text/javascript">
+ //<![CDATA[
+ 
+             mostrarUsuarios();
+             
+             function mostrarUsuarios(){
+             
+               var url4 = dominio + "users";
+           
+               
+                var list2=null;
+                      $.ajax({
+                     type : "GET",
+                     url : url4,
+                     dataType: "json",
+                    data: {users: list2},
+                    
+                     success : function(result) {
+                     	
+                        $('#tablebody').html("");
+                           $.each(result,function(key, val) {
+                         var clase = "class='btn btn-success'";  
+                       var  dni="'" + val.dni + "'";
+          			    var editar =' <h:button type="submit" class="btn btn-success" onclick="pasarUrl('+"'"+ val.dni+"'"+')" > Editar </h:button>';
+
+                 
+                 var  nombre="'" + val.nombre + "'";
+                 var onclickElDni='parametroDni('+ nombre + ','+ dni + ')';
+                        var div1='  <div onclick="'+onclickElDni + '">';
+                         var boton1='<h:button type="button" id="botondni" class="btn btn-success"  data-toggle="modal" data-target="#exampleModal" >Eliminar</h:button>';
+          
+           
+         var eliminar=div1+boton1+'</div>';
+
+       var htmlrow ="<tr>"+/*"<td><div>" + val.id + "</td></div>"+*/"<td><div>" + val.nombre + "</td></div>"+"<td><div>" + val.apellidos + "</td></div>"+"<td><div>" + val.dni + "</td></div>"+"<td><div>" + val.correo + "</td></div>"+"<td><div>" + val.telefono + "</td></div>"+"<td><div>" + val.direccion + "</td></div>"+"<td><div>" + val.cp + "</td></div>"+"<td><div>" + val.edad + "</td></div>"+"<td><div>" +  editar + "</td></div>"+"<td><div>" +  eliminar + "</td></div>"+"</tr>";         
+                     $('#tablebody').append(htmlrow);
+                });
+                           $(document).ready(function(){
+                         	  $('#tablaForm').DataTable({
+                     			  responsive: true,
+                     			  info: false,
+                     			    //para cambiar el lenguaje a español
+                     		        "language": {
+                     		                "lengthMenu": "Mostrar _MENU_ registros",
+                     		                "zeroRecords": "No se encontraron resultados",
+                     		                "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                     		                "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                     		                "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                     		                "sSearch": "Buscar:",
+                     		                "oPaginate": {
+                     		                    "sFirst": "Primero",
+                     		                    "sLast":"Último",
+                     		                    "sNext":"Siguiente",
+                     		                    "sPrevious": "Anterior"
+                     					     },
+                     					     "sProcessing":"Procesando...",
+                     		            }
+                     		    });     
+                     	                 
+                     	  }); 
+                     } 
+                 });   
+                      
+                 
+                      
+                      
+             }
+            
+             function pasarUrl(dni){
+             	 var baseUrl = "./crud/editarCliente.xhtml";
+                  location.href = baseUrl + "?dni=" + dni;
+             	
+
+             }
+          
+         	 
+          
+         $(document).ready(function() {
+          
+           $("table").tablesorter();
+         	 
+           $('#exampleModal').on('shown.bs.modal', function () {
+           $('#myInput').trigger('focus');
+         });
+           
+         });
+
+
+//]]>
+</script>
 <!-- Modal Eliminar -->
 <ui:include src="crud/borrarCliente.xhtml"></ui:include>
  
@@ -639,7 +287,7 @@ var contenidoBotones="";
 
                 </div>
     
-    </body>
+   
                    </ui:define>
 
         </ui:composition>
